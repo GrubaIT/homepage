@@ -10,9 +10,9 @@ import GroupIcon from "grommet/components/icons/base/Group";
 import MailIcon from "grommet/components/icons/base/Mail";
 import Label from "grommet/components/Label";
 
-import gargamel from "../images/web_version_gargamel_2.jpg";
-import bart from "../images/bart.jpg";
-import adam from "../images/adam.jpg";
+import gargamel from "../../../../images/web_version_gargamel_2.jpg";
+import bart from "../../../../images/bart.jpg";
+import adam from "../../../../images/adam.jpg";
 
 class Team extends Component {
   render() {

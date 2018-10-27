@@ -13,7 +13,7 @@ module.exports = {
     extensions: [".js", ".jsx"]
   },
   entry: {
-    app: ["react-hot-loader/patch", "./src/index.js"],
+    app: ["react-hot-loader/patch", "./src/App.jsx"],
     vendor: ["react", "react-dom"]
   },
   output: {

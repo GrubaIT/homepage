@@ -10,9 +10,9 @@ import Tiles from "grommet/components/Tiles";
 import Tile from "grommet/components/Tile";
 import Header from "grommet/components/Header";
 import CheckmarkIcon from "grommet/components/icons/base/Checkmark";
-import Countdown from "../components/Countdown";
-import logo from "../images/logo.svg";
-import Footer from "../components/Footer";
+import Countdown from "../../Common/Countdown";
+import logo from "../../images/logo.svg";
+import Footer from "../Home/Sections/Footer/Footer";
 
 const SubpageSection = ({ headerUppercase, title, children }) => (
   <Box className="subpage__section">

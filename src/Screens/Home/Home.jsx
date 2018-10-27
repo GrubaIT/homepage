@@ -1,22 +1,17 @@
 import React from "react";
-import ReactDOM from "react-dom";
-import Header from "grommet/components/Header";
-import Menu from "grommet/components/Menu";
-import Anchor from "grommet/components/Anchor";
 import Grommet from "grommet/components/Grommet";
 
-import Footer from '../components/Footer';
+import Footer from './Sections/Footer/Footer';
+import Welcome from "./Sections/Welcome/Welcome";
+import Mission from "./Sections/Mission/Mission";
+import Problem from "./Sections/Problem/Problem";
+import Solution from "./Sections/Solution/Solution";
+import Team from "./Sections/Team/Team";
+import Supporters from "./Sections/Supporters/Supporters";
+import Friends from "./Sections/Friends/Friends";
+import Contact from "./Sections/Contact/Contact";
 
-import {
-  Welcome,
-  Mission,
-  Problem,
-  Solution,
-  Team,
-  Contact,
-  Supporters,
-  Friends
-} from "../components";
+
 
 export default class App extends React.Component {
   render() {

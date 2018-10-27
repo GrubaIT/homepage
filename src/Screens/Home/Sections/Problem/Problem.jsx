@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Box from "grommet/components/Box";
 import Paragraph from "grommet/components/Paragraph";
-import Section from "./Section";
+import Section from "../../../../Common/Section";
 
 class Problem extends Component {
   render() {

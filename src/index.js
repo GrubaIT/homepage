@@ -4,7 +4,7 @@ import { AppContainer } from 'react-hot-loader';
 
 import './server-config/.htaccess';
 import './styles/main.scss';
-import App from './containers';
+import App from './App';
 
 const render = Component => {
     ReactDOM.render(

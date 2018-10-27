@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 
-import meetjs from '../images/meetjs-logo-white-katowice.svg'
-import microsoft from '../images/microsoft.png'
-import azure from '../images/azure.png'
-import qa from '../images/quality-meetup.png'
-import angular from '../images/angular_meetup.png'
-import antyrama from '../images/logo-antyrama.svg';
-import Logos from './Logos';
+import meetjs from '../../../../images/meetjs-logo-white-katowice.svg'
+import microsoft from '../../../../images/microsoft.png'
+import azure from '../../../../images/azure.png'
+import qa from '../../../../images/quality-meetup.png'
+import angular from '../../../../images/angular_meetup.png'
+import antyrama from '../../../../images/logo-antyrama.svg';
+import Logos from '../../../../Common/Logos';
 
 class Friends extends Component {
   render() {
