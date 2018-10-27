@@ -6,7 +6,7 @@ import Section from "./Section";
 
 class Logos extends Component {
   render() {
-    const { title, logos, className, backgroundColor } = this.props;
+    const { title, logos, backgroundColor } = this.props;
 
     return (
       <Section color={backgroundColor} title={title}>

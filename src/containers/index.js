@@ -1,7 +1,6 @@
-import React, { Component } from "react";
+import React, from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
-import favicon from "../images/favicon.png";
 import Home from "./Home";
 import Contest from "./Contest";
 import NoMatch from "./404.jsx";

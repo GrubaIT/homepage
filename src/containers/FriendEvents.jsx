@@ -3,13 +3,11 @@ import Tiles from 'grommet/components/Tiles';
 import Tile from 'grommet/components/Tile';
 import Card from 'grommet/components/Card';
 import Spinning from 'grommet/components/icons/Spinning';
-
 import friendProvider from '../services/friend-provider';
 import friendEventProvider from '../services/friend-events-provider';
 import { forkJoin } from 'rxjs';
 import { switchMap, map } from 'rxjs/operators';
 import Subpage from '../components/Subpage';
-import SubpageSection from '../components/SubpageSection';
 
 class FriendEvents extends Component {
     constructor(props) {

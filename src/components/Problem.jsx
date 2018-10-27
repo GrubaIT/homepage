@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Box from "grommet/components/Box";
 import Paragraph from "grommet/components/Paragraph";
 import Section from "./Section";
 

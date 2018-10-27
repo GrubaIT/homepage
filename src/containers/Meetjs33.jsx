@@ -4,9 +4,7 @@ import Heading from "grommet/components/Heading";
 import Grommet from "grommet/components/Grommet";
 import logo from "../images/logo.svg";
 import Footer from "../components/Footer";
-
 import SubpageSection from '../components/SubpageSection';
-
 
 class Meetjs33 extends Component {
     render() {

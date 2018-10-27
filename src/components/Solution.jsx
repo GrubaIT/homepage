@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import Box from "grommet/components/Box";
 import Heading from "grommet/components/Heading";
-import Paragraph from "grommet/components/Paragraph";
-import Anchor from "grommet/components/Anchor";
 import Card from "grommet/components/Card";
 import Tiles from "grommet/components/Tiles";
 import Tile from "grommet/components/Tile";

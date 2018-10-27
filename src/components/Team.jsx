@@ -1,18 +1,14 @@
 import React, { Component } from "react";
-
 import Box from "grommet/components/Box";
 import Card from "grommet/components/Card";
 import Heading from "grommet/components/Heading";
 import Columns from "grommet/components/Columns";
 import Button from "grommet/components/Button";
 import Pulse from "grommet/components/icons/Pulse";
-import GroupIcon from "grommet/components/icons/base/Group";
 import MailIcon from "grommet/components/icons/base/Mail";
 import Label from "grommet/components/Label";
-
 import gargamel from "../images/web_version_gargamel_2.jpg";
 import bart from "../images/bart.jpg";
-import adam from "../images/adam.jpg";
 
 class Team extends Component {
   render() {

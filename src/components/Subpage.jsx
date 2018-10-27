@@ -2,9 +2,6 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import Heading from 'grommet/components/Heading';
 import Grommet from 'grommet/components/Grommet';
-import Box from 'grommet/components/Box';
-
-import SubpageSection from './SubpageSection';
 import logo from "../images/logo.svg";
 
 export default ({ title, children, className }) =>

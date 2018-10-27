@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import Box from "grommet/components/Box";
 import Heading from "grommet/components/Heading";
 
-
 class Section extends Component {
   render() {
     const { title, color, children, className } = this.props;

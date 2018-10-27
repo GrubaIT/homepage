@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-
 import Box from 'grommet/components/Box';
 import Heading from 'grommet/components/Heading';
 import Paragraph from 'grommet/components/Paragraph';

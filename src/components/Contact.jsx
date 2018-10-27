@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-
 import Tiles from "grommet/components/Tiles";
 import Tile from "grommet/components/Tile";
 import Box from "grommet/components/Box";

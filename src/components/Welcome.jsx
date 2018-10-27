@@ -1,7 +1,5 @@
 import React from "react";
-import background from "../images/background.svg";
 import gruba from "../images/logo.svg";
-import ScrollDown from './ScrollDown';
 
 export default class Welcome extends React.Component {
   constructor(props) {

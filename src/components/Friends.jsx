@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-
 import friendProvider from '../services/friend-provider';
 import Logos from './Logos';
 
