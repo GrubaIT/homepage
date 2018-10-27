@@ -1,6 +1,6 @@
 Strona Gruba.IT
 ========================
-Prosta stronka, z której korzystamy jako naszje strony głównej fundacji. Oparta na boilerplate'ie od Kamila Szymańskiego.
+Prosta stronka, z której korzystamy jako naszej strony głównej fundacji. Oparta na boilerplate'ie od Kamila Szymańskiego.
 ---------------
 Stack:
 * [Yarn](https://yarnpkg.com/lang/en/)
