@@ -1,15 +1,15 @@
 import React from "react";
 import Grommet from "grommet/components/Grommet";
 
-import Footer from './Sections/Footer/Footer';
-import Welcome from "./Sections/Welcome/Welcome";
-import Mission from "./Sections/Mission/Mission";
-import Problem from "./Sections/Problem/Problem";
-import Solution from "./Sections/Solution/Solution";
-import Team from "./Sections/Team/Team";
-import Supporters from "./Sections/Supporters/Supporters";
-import Friends from "./Sections/Friends/Friends";
-import Contact from "./Sections/Contact/Contact";
+import Footer from './Sections/Footer';
+import Welcome from "./Sections/Welcome";
+import Mission from "./Sections/Mission";
+import Problem from "./Sections/Problem";
+import Solution from "./Sections/Solution";
+import Team from "./Sections/Team";
+import Supporters from "./Sections/Supporters";
+import Friends from "./Sections/Friends";
+import Contact from "./Sections/Contact";
 
 
 

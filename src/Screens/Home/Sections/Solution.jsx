@@ -6,11 +6,11 @@ import Anchor from "grommet/components/Anchor";
 import Card from "grommet/components/Card";
 import Tiles from "grommet/components/Tiles";
 import Tile from "grommet/components/Tile";
-import meetup from "../../../../images/meetup.jpg";
-import education from "../../../../images/education.jpg";
-import katowice from "../../../../images/katowice.jpg";
-import cooperation from "../../../../images/cooperation.jpg";
-import Section from "../../../../Common/Section";
+import meetup from "./images/meetup.jpg";
+import education from "./images/education.jpg";
+import katowice from "./images/katowice.jpg";
+import cooperation from "./images/cooperation.jpg";
+import Section from "./Common/Section";
 
 class Solution extends Component {
   render() {
