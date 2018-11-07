@@ -12,7 +12,7 @@ import Subpage from '../components/Subpage';
 import SubpageSection from '../components/SubpageSection';
 import MenuWrapped from '../components/MenuWrapped';
 
-const byDateComparer = ({date: dateA}, {date: dateB}) => dateA.getTime() - dateB.getTime();
+const byDate = ({date: dateA}, {date: dateB}) => dateA.getTime() - dateB.getTime();
 
 class FriendEvents extends Component {
     constructor(props) {
@@ -29,7 +29,7 @@ class FriendEvents extends Component {
                   events: [...this.state.events, ...x]
                     .reduce((accumulated, current) => [...accumulated, ...current])
                     .map(event => Object.assign(event, {dateString: event.date, date: new Date(event.date)}))
-                    .sort(byDateComparer)
+                    .sort(byDate)
                 });
             });
     }
