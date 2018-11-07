@@ -35,7 +35,6 @@ class FriendEvents extends Component {
     }
 
     render() {
-        console.log(this.state);
         return (
             <MenuWrapped>
                 <Subpage title='Nadchodzące wydarzenia kamratów' className='friend-events'>
