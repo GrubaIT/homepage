@@ -3340,6 +3340,7 @@ js-cookie@^2.2.0:
 js-joda@^1.9.2:
   version "1.9.2"
   resolved "https://registry.yarnpkg.com/js-joda/-/js-joda-1.9.2.tgz#eff9e125329fe183c8d59f35e2cdbf1bcb127831"
+  integrity sha512-gW45RnlxvxG3VRumOFlYr/dB3gIsE3fuC9uxTCxfVnPTTUh/NaXo09GT74g4HY34zM7omksxSSJFd7oXimKrEA==
 
 js-tokens@^3.0.0, js-tokens@^3.0.2:
   version "3.0.2"
@@ -5266,6 +5267,7 @@ ripemd160@^2.0.0, ripemd160@^2.0.1:
 rxjs@^6.3.3:
   version "6.3.3"
   resolved "https://registry.yarnpkg.com/rxjs/-/rxjs-6.3.3.tgz#3c6a7fa420e844a81390fb1158a9ec614f4bad55"
+  integrity sha512-JTWmoY9tWCs7zvIk/CvRjhjGaOd+OVBM987mxFo+OW66cGpdKjZcpmc74ES1sB//7Kl/PAe8+wEakuhG4pcgOw==
   dependencies:
     tslib "^1.9.0"
 
@@ -5861,6 +5863,7 @@ trim-right@^1.0.1:
 tslib@^1.9.0:
   version "1.9.3"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.9.3.tgz#d7e4dd79245d85428c4d7e4822a79917954ca286"
+  integrity sha512-4krF8scpejhaOgqzBEcGM7yDIEfi0/8+8zDRZhNZZ2kjmHJ4hv3zCbQWxoJGz1iw5U0Jl0nma13xzHXcncMavQ==
 
 tty-browserify@0.0.0:
   version "0.0.0"
@@ -6263,6 +6266,7 @@ xml-char-classes@^1.0.0:
 xml-js@^1.6.8:
   version "1.6.8"
   resolved "https://registry.yarnpkg.com/xml-js/-/xml-js-1.6.8.tgz#e06419c54235f18f4c2cdda824cbd65a782330de"
+  integrity sha512-kUv/geyN80d+s1T68uBfjoz+PjNUjwwf5AWWRwKRqqQaGozpMVsFsKYnenPsxlbN/VL7f0ia8NfLLPCDwX+95Q==
   dependencies:
     sax "^1.2.4"
 
