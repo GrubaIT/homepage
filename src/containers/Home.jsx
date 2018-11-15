@@ -15,12 +15,11 @@ import {
   Supporters,
   Friends
 } from "../components";
-import MenuWrapped from "../components/MenuWrapped";
 
 class App extends React.Component {
   render() {
     return (
-      <MenuWrapped>
+      <div>
         <Welcome />
         <Grommet className="content-wrapper">
           <OurEvents />
@@ -30,10 +29,8 @@ class App extends React.Component {
           <Team />
           <Supporters />
           <Friends />
-          <Contact />
-          <Footer />
         </Grommet>
-      </MenuWrapped>
+      </div>
     );
   }
 }

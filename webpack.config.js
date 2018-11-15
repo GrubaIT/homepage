@@ -34,6 +34,13 @@ const config = (env, options) => {
             devMode ? "style-loader" : MiniCssExtractPlugin.loader,
             "css-loader",
             {
+              loader: "postcss-loader",
+              options: {
+                ident: "postcss",
+                plugins: [require("autoprefixer")({ grid: false })]
+              }
+            },
+            {
               loader: "sass-loader",
               options: {
                 includePaths: [

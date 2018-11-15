@@ -4,7 +4,8 @@
   "description": "",
   "scripts": {
     "build": "webpack --mode=production",
-    "start": "webpack-dev-server --hot"
+    "start": "webpack-dev-server --hot",
+    "analize": "webpack --mode=production --profile --json > stats.json && webpack-bundle-analyzer stats.json"
   },
   "author": "grubait",
   "license": "BSD",
@@ -16,12 +17,14 @@
     "@babel/plugin-syntax-dynamic-import": "^7.0.0",
     "@babel/preset-env": "^7.1.0",
     "@babel/preset-react": "^7.0.0",
+    "autoprefixer": "^9.3.1",
     "babel-loader": "^8.0.4",
     "css-loader": "^1.0.0",
     "html-webpack-plugin": "^3.2.0",
     "mini-css-extract-plugin": "^0.4.4",
     "node-sass": "^4.9.4",
     "optimize-css-assets-webpack-plugin": "^5.0.1",
+    "postcss-loader": "^3.0.0",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
     "uglifyjs-webpack-plugin": "^2.0.1",
@@ -33,9 +36,8 @@
   },
   "dependencies": {
     "file-loader": "^1.1.6",
-    "grommet": "^1.10.1",
+    "grommet": "^1.13.0",
     "js-joda": "^1.9.2",
-    "moment": "^2.22.2",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
     "react-hot-loader": "^4.3.12",

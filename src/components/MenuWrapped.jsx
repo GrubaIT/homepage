@@ -1,7 +1,4 @@
 import React from 'react';
-import Menu from 'grommet/components/Menu';
-import MenuIcon from 'grommet/components/icons/base/Menu';
-import Anchor from 'grommet/components/Anchor';
 import { NavLink } from 'react-router-dom';
 import Header from 'grommet/components/Header';
 
@@ -11,22 +8,15 @@ export default ({ children }) =>
             float={false}
             className='app-container__menu'
             splash={false}>
-            <Menu responsive={true}
-                label='Menu'
-                icon={<MenuIcon />}
-                inline={false}
-                primary={true}
-                size='small'>
-                <NavLink to='/'>
-                    <Anchor>Strona główna</Anchor>
+                <NavLink to='/' exact className='grommetux-anchor'>
+                    Strona główna
                 </NavLink>
-                <NavLink to='/galeria'>
-                    <Anchor>Zdjęcia z wydarzeń</Anchor>
+                <NavLink to='/galeria' className='grommetux-anchor'>
+                    Zdjęcia z wydarzeń
                 </NavLink>
-                <NavLink to='/kamraci'>
-                    <Anchor>Nadchodzące wydarzenia naszych kamratów</Anchor>
+                <NavLink to='/kamraci' className='grommetux-anchor'>
+                    Nadchodzące wydarzenia naszych kamratów
                 </NavLink>
-            </Menu>
         </Header>
         {children}
     </React.Fragment>
