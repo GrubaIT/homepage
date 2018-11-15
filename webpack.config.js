@@ -1,46 +1,38 @@
 const path = require("path");
-const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
+const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 
-const extractSass = new ExtractTextPlugin({
-  filename: "[name].css",
-  disable: true
-});
-
-module.exports = {
-  resolve: {
-    extensions: [".js", ".jsx"]
-  },
-  entry: {
-    app: ["react-hot-loader/patch", "./src/index.js"],
-    vendor: ["react", "react-dom"]
-  },
-  output: {
-    path: path.resolve(__dirname, "dist"),
-    filename: "[name].bundle.js",
-    publicPath: "/"
-  },
-  module: {
-    rules: [
-      {
-        test: /\.(js|jsx)$/,
-        use: "babel-loader"
-      },
-      {
-        test: /\.scss$/,
-        include: [
-          path.resolve(__dirname, "node_modules/grommet"),
-          path.resolve(__dirname, "src/styles")
-        ],
-        use: extractSass.extract({
+const config = (env, options) => {
+  const devMode = options.mode !== "production";
+  return {
+    resolve: {
+      extensions: [".js", ".jsx"]
+    },
+    entry: {
+      app: path.resolve(__dirname, "src", "index.js")
+    },
+    output: {
+      path: path.resolve(__dirname, "dist"),
+      filename: "[name].bundle.js",
+      publicPath: "/"
+    },
+    module: {
+      rules: [
+        {
+          test: /\.(js|jsx)$/,
+          use: "babel-loader"
+        },
+        {
+          test: /\.scss$/,
+          include: [
+            path.resolve(__dirname, "node_modules/grommet"),
+            path.resolve(__dirname, "src/styles")
+          ],
           use: [
-            {
-              loader: "css-loader"
-            },
-            {
-              loader: "sass-loader"
-            },
+            devMode ? "style-loader" : MiniCssExtractPlugin.loader,
+            "css-loader",
             {
               loader: "sass-loader",
               options: {
@@ -51,45 +43,51 @@ module.exports = {
                 ]
               }
             }
-          ],
-          fallback: "style-loader"
-        })
+          ]
+        },
+        {
+          test: /\.(jpe?g|png|gif|ico|svg)$/i,
+          use: "file-loader?name=images/[name].[ext]"
+        },
+        {
+          test: /\.htaccess/,
+          include: [path.resolve(__dirname, "src/server-config")],
+          use: "file-loader?name=.htaccess"
+        }
+      ]
+    },
+    plugins: [
+      new MiniCssExtractPlugin({
+        filename: devMode ? "[name].css" : "[name].[hash].css",
+        chunkFilename: devMode ? "[id].css" : "[id].[hash].css"
+      }),
+      new HtmlWebpackPlugin({
+        template: "./src/index.html"
+      })
+    ],
+    optimization: {
+      splitChunks: {
+        chunks: "all"
       },
-      {
-        test: /\.(jpe?g|png|gif|ico|svg)$/i,
-        use: "file-loader?name=images/[name].[ext]"
-      },
-      {
-        test: /\.htaccess/,
-        include: [path.resolve(__dirname, 'src/server-config')],
-        use: "file-loader?name=.htaccess"
-      }
-    ]
-  },
-  plugins: [
-    extractSass,
-    new HtmlWebpackPlugin({
-      template: "./src/index.html"
-    }),
-    new webpack.optimize.CommonsChunkPlugin({
-      name: "vendor"
-    }),
-    new webpack.NamedModulesPlugin(),
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.DefinePlugin({
-      "process.env": {
-        NODE_ENV: JSON.stringify("production")
-      }
-    }),
-    new webpack.optimize.UglifyJsPlugin()
-  ],
-  devtool: "inline-source-map",
-  devServer: {
-    contentBase: path.join(__dirname, "dist"),
-    compress: true,
-    port: 9000,
-    overlay: true,
-    hot: true,
-    historyApiFallback: true
-  }
+      minimizer: [
+        new UglifyJsPlugin({
+          cache: true,
+          parallel: true,
+          sourceMap: true
+        }),
+        new OptimizeCSSAssetsPlugin({})
+      ]
+    },
+    mode: "development",
+    devtool: devMode ? "cheap-eval-source-map" : "cheap-source-map",
+    devServer: {
+      contentBase: path.join(__dirname, "dist"),
+      compress: true,
+      port: 9000,
+      overlay: true,
+      historyApiFallback: true
+    }
+  };
 };
+
+module.exports = config;

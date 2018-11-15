@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { hot } from 'react-hot-loader';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import favicon from "../images/favicon.png";
@@ -26,4 +27,4 @@ const Routes = () => (
   </div>
 );
 
-export default Routes;
+export default hot(module)(Routes);

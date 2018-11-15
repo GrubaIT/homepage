@@ -4,7 +4,6 @@ import MenuIcon from 'grommet/components/icons/base/Menu';
 import Anchor from 'grommet/components/Anchor';
 import { NavLink } from 'react-router-dom';
 import Header from 'grommet/components/Header';
-import Box from 'grommet/components/Box';
 
 export default ({ children }) =>
     <React.Fragment>

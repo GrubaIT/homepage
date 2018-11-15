@@ -1,4 +1,5 @@
 import React from "react";
+import { hot } from 'react-hot-loader';
 import Grommet from "grommet/components/Grommet";
 
 import Footer from '../components/Footer';
@@ -16,7 +17,7 @@ import {
 } from "../components";
 import MenuWrapped from "../components/MenuWrapped";
 
-export default class App extends React.Component {
+class App extends React.Component {
   render() {
     return (
       <MenuWrapped>
@@ -36,3 +37,4 @@ export default class App extends React.Component {
     );
   }
 }
+export default hot(module)(App);
