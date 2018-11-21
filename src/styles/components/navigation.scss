@@ -1,0 +1,29 @@
+.app-container__menu {
+    display: flex;
+    justify-content: flex-end;
+
+    @media (max-width: 759px){
+      flex-wrap: wrap;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+    }
+
+    a.grommetux-anchor {
+    color: $color-white;
+    transition: all 0.2s ease-out;
+    margin: 0 25px;
+    &:visited {
+      color: $color-white;
+    }
+    &:hover {
+      color: $color-yellow;
+      text-decoration: none;
+      transform: scale(1.05);
+    }
+    &.active {
+      color: $color-yellow;
+    }
+  }
+}

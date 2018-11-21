@@ -12,7 +12,6 @@ import Header from "grommet/components/Header";
 import CheckmarkIcon from "grommet/components/icons/base/Checkmark";
 import Countdown from "../components/Countdown";
 import logo from "../images/logo.svg";
-import Footer from "../components/Footer";
 
 const SubpageSection = ({ headerUppercase, title, children }) => (
   <Box className="subpage__section">
@@ -214,7 +213,6 @@ class Contest extends Component {
               </AccordionPanel>
             </Accordion>
           </SubpageSection>
-          <Footer />
         </Grommet>
       </section>
     );

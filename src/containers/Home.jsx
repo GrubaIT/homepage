@@ -1,4 +1,5 @@
 import React from "react";
+import { hot } from 'react-hot-loader';
 import Grommet from "grommet/components/Grommet";
 
 import Footer from '../components/Footer';
@@ -14,12 +15,11 @@ import {
   Supporters,
   Friends
 } from "../components";
-import MenuWrapped from "../components/MenuWrapped";
 
-export default class App extends React.Component {
+class App extends React.Component {
   render() {
     return (
-      <MenuWrapped>
+      <div>
         <Welcome />
         <Grommet className="content-wrapper">
           <OurEvents />
@@ -29,10 +29,9 @@ export default class App extends React.Component {
           <Team />
           <Supporters />
           <Friends />
-          <Contact />
-          <Footer />
         </Grommet>
-      </MenuWrapped>
+      </div>
     );
   }
 }
+export default hot(module)(App);

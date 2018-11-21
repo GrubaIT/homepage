@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Footer, Contact, Subpage, MenuWrapped, Gallery } from '../components';
+import { Subpage, Gallery } from '../components';
 import galleryService from "../services/gallery-service";
 
 export default class App extends React.Component {
@@ -17,13 +17,9 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <MenuWrapped>
-        <Subpage title="Zdjęcia z naszych wydarzeń" className="friend-events">
-          <Gallery imageUrls={this.state.images} />
-          <Contact />
-          <Footer />
-        </Subpage>
-      </MenuWrapped>
+      <Subpage title="Zdjęcia z naszych wydarzeń" className="friend-events">
+        <Gallery imageUrls={this.state.images} />
+      </Subpage>
     );
   }
 }
