@@ -11,6 +11,7 @@ import Meetjs33 from "./Meetjs33";
 import FourDev from "./FourDev";
 import Gallery from "./Gallery";
 import FriendEvents from "./FriendEvents";
+import Fdd from "./Fdd";
 
 const Routes = () => (
   <div className="app-container">
@@ -22,6 +23,8 @@ const Routes = () => (
             <Route path="/zadanie" component={Contest} />
             <Route path="/meetjs33" component={Meetjs33} />
             <Route path="/4dev" component={FourDev} />
+            <Route path="/fdd" component={Fdd} />
+            <Route path="/grupams" component={Fdd} />
             <Route path="/galeria" component={Gallery} />
             <Route path="/kamraci" component={FriendEvents} />
             <Route component={NoMatch} />
