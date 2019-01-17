@@ -12,6 +12,7 @@ import FourDev from "./FourDev";
 import Gallery from "./Gallery";
 import FriendEvents from "./FriendEvents";
 import Fdd from "./Fdd";
+import CommunityGuide from './CommunityGuide';
 
 const Routes = () => (
   <div className="app-container">
@@ -27,6 +28,7 @@ const Routes = () => (
             <Route path="/grupams" component={Fdd} />
             <Route path="/galeria" component={Gallery} />
             <Route path="/kamraci" component={FriendEvents} />
+            <Route path='/przewodnik-po-spolecznosci' component={CommunityGuide} />
             <Route component={NoMatch} />
           </Switch>
           <div className='grommet content-wrapper'>
