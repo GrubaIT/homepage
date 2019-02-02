@@ -3,19 +3,39 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
+    max-width: 90%;
 
     & > section {
         flex: 0 0 48%;
     }
 
     &__magnet {
-        
+        &--two-column {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+
+            & > * {
+                flex: 0 0 48%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+        }
     }
 
     &__subscribe {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
         .form {
             display: flex;
             flex-direction: column;
+            justify-content: center;
+            border: 3px solid $color-yellow;
+            background-color: white;
+            padding: 25px;
 
             .fieldset {
                 display: flex;
@@ -42,10 +62,13 @@
                 width: 100%;
                 display: block;
                 max-width: unset;
+                background-color: $color-red;
+                border-color: $color-red;
+                color: white;
 
                 &:hover {
-                    color: white;
-                    background-color: $color-yellow;
+                    color: $color-red;
+                    background-color: white;
                 }
             }
         }
