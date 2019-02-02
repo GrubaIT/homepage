@@ -1,0 +1,1 @@
+export const mailchimpListUrl = 'https://gruba.us19.list-manage.com/subscribe/post?u=96f84be021aa289a749b39fc4&amp;id=b4b94cf7e5';
