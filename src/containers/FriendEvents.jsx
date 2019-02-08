@@ -164,11 +164,15 @@ class FriendEvents extends Component {
                                                 href={event.link}
                                                 target='_blank'>
                                                 <Card
-                                                    description={
+                                                    description={event.name}
+                                                    heading={event.group}
+                                                    label={`${
                                                         event.dateString
-                                                    }
-                                                    heading={event.name}
-                                                    label={event.group}
+                                                    } ${event.time.format(
+                                                        DateTimeFormatter.ofPattern(
+                                                            'HH:mm'
+                                                        )
+                                                    )}`}
                                                     thumbnail={event.image}
                                                 />
                                             </a>
