@@ -3,37 +3,18 @@ import Tiles from 'grommet/components/Tiles';
 import Tile from 'grommet/components/Tile';
 import Card from 'grommet/components/Card';
 import Spinning from 'grommet/components/icons/Spinning';
-import Select from 'grommet/components/Select';
-import Label from 'grommet/components/Label';
 
 import friendProvider from '../services/friend-provider';
 import friendEventsProvider from '../services/friend-events-provider';
+import byDate from '../services/byDate';
 import Subpage from '../components/Subpage';
 import selectMany from '../services/selectMany';
 import arrayContainsAnyOf from '../services/arrayContainsAnyOf';
+import { DateTimeFormatter } from 'js-joda';
+import EventFilters from '../components/EventFilters';
 
-const byDate = ({ date: dateA }, { date: dateB }) =>
-    dateA.getTime() - dateB.getTime();
-
-const SingleFilter = ({
-    className,
-    title,
-    elements,
-    onChange,
-    placeholder,
-    value,
-}) => (
-    <div className={className}>
-        <Label>{title}</Label>
-        <Select
-            options={elements}
-            onChange={onChange}
-            value={value}
-            multiple
-            placeholder={placeholder}
-        />
-    </div>
-);
+const giveMeArray = maybeArray =>
+    Array.isArray(maybeArray) ? maybeArray : [maybeArray];
 
 class FriendEvents extends Component {
     constructor(props) {
@@ -47,6 +28,12 @@ class FriendEvents extends Component {
             chosenLocations: [],
             chosenGroups: [],
         };
+        this.updateChosenSubjects = ({ value }) =>
+            this.setState({ chosenSubjects: giveMeArray(value) });
+        this.updateChosenLocations = ({ value }) =>
+            this.setState({ chosenLocations: giveMeArray(value) });
+        this.updateChosenGroups = ({ value }) =>
+            this.setState({ chosenGroups: giveMeArray(value) });
     }
 
     componentDidMount() {
@@ -57,8 +44,11 @@ class FriendEvents extends Component {
                         events: [...this.state.events, ...events]
                             .map(event =>
                                 Object.assign(event, {
-                                    dateString: event.date,
-                                    date: new Date(event.date),
+                                    dateString: event.date.format(
+                                        DateTimeFormatter.ofPattern(
+                                            'dd.MM.yyyy'
+                                        )
+                                    ),
                                 })
                             )
                             .sort(byDate),
@@ -103,47 +93,42 @@ class FriendEvents extends Component {
     render() {
         return (
             <Subpage
-                title="Nadchodzące wydarzenia kamratów"
-                className="friend-events">
+                title='Nadchodzące wydarzenia kamratów'
+                className='friend-events'>
                 {this.state.events.length > 0 ? (
                     <React.Fragment>
-                        <section className="friend-events__filters">
-                            <SingleFilter
-                                className="friend-events__filters--single"
-                                title="Tematyka"
-                                elements={this.state.subjects}
-                                placeholder="Kazda"
-                                value={this.state.chosenSubjects}
-                                onChange={({ value }) =>
-                                    this.setState({ chosenSubjects: value })
-                                }
-                            />
-                            <SingleFilter
-                                className="friend-events__filters--single"
-                                title="Lokalizacja"
-                                elements={this.state.locations}
-                                placeholder="Wszystkie"
-                                value={this.state.chosenLocations}
-                                onChange={({ value }) =>
-                                    this.setState({ chosenLocations: value })
-                                }
-                            />
-                            <SingleFilter
-                                className="friend-events__filters--single"
-                                title="Grupa"
-                                elements={this.state.events.map(
-                                    event => event.group
-                                )}
-                                placeholder="Wszystkie"
-                                value={this.state.chosenGroups}
-                                onChange={({ value }) =>
-                                    this.setState({ chosenGroups: value })
-                                }
-                            />
-                        </section>
+                        <EventFilters
+                            containerClassName='friend-events__filters'
+                            singleFilterClassName='friend-events__filters--single'
+                            filters={[
+                                {
+                                    title: 'Tematyka',
+                                    allElements: this.state.subjects,
+                                    placeholder: 'Każda',
+                                    chosenElements: this.state.chosenSubjects,
+                                    onChange: this.updateChosenSubjects,
+                                },
+                                {
+                                    title: 'Lokalizacja',
+                                    allElements: this.state.locations,
+                                    placeholder: 'Wszystkie',
+                                    chosenElements: this.state.chosenLocations,
+                                    onChange: this.updateChosenLocations,
+                                },
+                                {
+                                    title: 'Grupa',
+                                    allElements: this.state.events.map(
+                                        event => event.group
+                                    ),
+                                    placeholder: 'Wszystkie',
+                                    chosenElements: this.state.chosenGroups,
+                                    onChange: this.updateChosenGroups,
+                                },
+                            ]}
+                        />
                         <Tiles
                             fill={false}
-                            className="friend-events__tiles"
+                            className='friend-events__tiles'
                             flush={false}>
                             {this.state.events
                                 .filter(
@@ -172,14 +157,16 @@ class FriendEvents extends Component {
                                 )
                                 .map(event => (
                                     <div
-                                        className="friend-events__event"
+                                        className='friend-events__event'
                                         key={`event-${event.name}`}>
                                         <Tile>
                                             <a
                                                 href={event.link}
-                                                target="_blank">
+                                                target='_blank'>
                                                 <Card
-                                                    description={event.dateString.toString()}
+                                                    description={
+                                                        event.dateString
+                                                    }
                                                     heading={event.name}
                                                     label={event.group}
                                                     thumbnail={event.image}
@@ -191,7 +178,7 @@ class FriendEvents extends Component {
                         </Tiles>
                     </React.Fragment>
                 ) : (
-                    <Spinning size="large" />
+                    <Spinning size='large' />
                 )}
             </Subpage>
         );

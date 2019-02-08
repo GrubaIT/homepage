@@ -1,6 +1,6 @@
 import { ajax } from 'rxjs/ajax';
-import { map, mergeMap, flatMap, concatMapTo, concatMap } from 'rxjs/operators';
-import { LocalDate } from 'js-joda';
+import { map, flatMap } from 'rxjs/operators';
+import { LocalDate, LocalTime } from 'js-joda';
 
 import eventProviders from '../constants/eventProviders';
 import { from } from 'rxjs';
@@ -23,12 +23,8 @@ export default function getEvents(getFriends) {
                                 link: event.url,
                                 group: friend.name,
                                 image: friend.logo.image,
-                                date: LocalDate.parse(event.start.local).format(
-                                    DateTimeFormatter.ofPattern('dd MM yyyy')
-                                ),
-                                time: LocalDate.parse(event.start.local).format(
-                                    DateTimeFormatter.ofPattern('HH:ii')
-                                ),
+                                date: LocalDate.parse(event.start.local),
+                                time: LocalDate.parse(event.start.local),
                                 subjects: friend.subjects,
                                 location: friend.location,
                             }));
@@ -47,8 +43,8 @@ export default function getEvents(getFriends) {
                                     link: event.link,
                                     group: event.group.name,
                                     image: friend.logo.image,
-                                    date: event.local_date,
-                                    time: event.local_time,
+                                    date: LocalDate.parse(event.local_date),
+                                    time: LocalTime.parse(event.local_time),
                                     subjects: friend.subjects,
                                     location: friend.location,
                                 }));
