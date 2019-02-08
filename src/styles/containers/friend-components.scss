@@ -1,4 +1,13 @@
 .friend-events {
+    &__filters {
+        &--single {
+            margin: 15px 0;
+            input[type='text'] {
+                background-color: white;
+            }
+        }
+    }
+
     &__tiles {
         justify-content: space-evenly;
         max-width: 70%;
@@ -9,7 +18,8 @@
         border: 3px solid $color-yellow;
         margin-bottom: 25px;
 
-        & label, & h2 {
+        & label,
+        & h2 {
             color: $color-white;
         }
     }

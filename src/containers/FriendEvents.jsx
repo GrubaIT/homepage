@@ -8,12 +8,32 @@ import Label from 'grommet/components/Label';
 
 import friendProvider from '../services/friend-provider';
 import friendEventsProvider from '../services/friend-events-provider';
-import { forkJoin } from 'rxjs';
 import Subpage from '../components/Subpage';
 import selectMany from '../services/selectMany';
+import arrayContainsAnyOf from '../services/arrayContainsAnyOf';
 
 const byDate = ({ date: dateA }, { date: dateB }) =>
     dateA.getTime() - dateB.getTime();
+
+const SingleFilter = ({
+    className,
+    title,
+    elements,
+    onChange,
+    placeholder,
+    value,
+}) => (
+    <div className={className}>
+        <Label>{title}</Label>
+        <Select
+            options={elements}
+            onChange={onChange}
+            value={value}
+            multiple
+            placeholder={placeholder}
+        />
+    </div>
+);
 
 class FriendEvents extends Component {
     constructor(props) {
@@ -22,39 +42,62 @@ class FriendEvents extends Component {
             events: [],
             subjects: [],
             locations: [],
+            subscription: null,
+            chosenSubjects: [],
+            chosenLocations: [],
+            chosenGroups: [],
         };
     }
 
     componentDidMount() {
-        friendEventsProvider(friendProvider).subscribe(events => {
-            if (events.length > 0) {
-                console.log(events);
-                this.setState({
-                    events: [...this.state.events, ...events]
-                        .map(event =>
-                            Object.assign(event, {
-                                dateString: event.date,
-                                date: new Date(event.date),
-                            })
-                        )
-                        .sort(byDate),
-                    subjects: events
-                        .filter(event => event.subjects)
-                        .reduce(
-                            (accumulated, current) => [
-                                ...accumulated,
-                                ...current.subjects.filter(
-                                    subject => !accumulated.includes(subject)
+        const subscription = friendEventsProvider(friendProvider).subscribe(
+            events => {
+                if (events.length > 0) {
+                    this.setState({
+                        events: [...this.state.events, ...events]
+                            .map(event =>
+                                Object.assign(event, {
+                                    dateString: event.date,
+                                    date: new Date(event.date),
+                                })
+                            )
+                            .sort(byDate),
+                        subjects: [
+                            ...this.state.subjects,
+                            ...events
+                                .filter(event => event.subjects)
+                                .reduce(
+                                    (accumulated, current) => [
+                                        ...accumulated,
+                                        ...current.subjects.filter(
+                                            subject =>
+                                                !accumulated.includes(
+                                                    subject
+                                                ) &&
+                                                !this.state.subjects.includes(
+                                                    subject
+                                                )
+                                        ),
+                                    ],
+                                    []
                                 ),
-                            ],
-                            []
-                        ),
-                    locations: selectMany(events, 'location'),
-                });
+                        ],
+                        locations: [
+                            ...this.state.locations,
+                            ...selectMany(events, 'location').filter(
+                                location =>
+                                    !this.state.locations.includes(location)
+                            ),
+                        ],
+                    });
+                }
             }
-        });
+        );
+        this.setState({ subscription });
+    }
 
-        console.log(this.state);
+    componentWillUnmount() {
+        this.state.subscription.unsubscribe();
     }
 
     render() {
@@ -64,45 +107,87 @@ class FriendEvents extends Component {
                 className="friend-events">
                 {this.state.events.length > 0 ? (
                     <React.Fragment>
-                        <section>
-                            <Label>Tematyka</Label>
-                            <Select
-                                options={this.state.subjects}
-                                onChange={({ option }) => {}}
+                        <section className="friend-events__filters">
+                            <SingleFilter
+                                className="friend-events__filters--single"
+                                title="Tematyka"
+                                elements={this.state.subjects}
+                                placeholder="Kazda"
+                                value={this.state.chosenSubjects}
+                                onChange={({ value }) =>
+                                    this.setState({ chosenSubjects: value })
+                                }
                             />
-                            <Label>Lokalizacja</Label>
-                            <Select
-                                options={this.state.locations}
-                                onChange={({ option }) => {}}
+                            <SingleFilter
+                                className="friend-events__filters--single"
+                                title="Lokalizacja"
+                                elements={this.state.locations}
+                                placeholder="Wszystkie"
+                                value={this.state.chosenLocations}
+                                onChange={({ value }) =>
+                                    this.setState({ chosenLocations: value })
+                                }
                             />
-                            <Label>Grupa</Label>
-                            <Select
-                                options={this.state.events.map(
+                            <SingleFilter
+                                className="friend-events__filters--single"
+                                title="Grupa"
+                                elements={this.state.events.map(
                                     event => event.group
                                 )}
-                                onChange={({ option }) => {}}
+                                placeholder="Wszystkie"
+                                value={this.state.chosenGroups}
+                                onChange={({ value }) =>
+                                    this.setState({ chosenGroups: value })
+                                }
                             />
                         </section>
                         <Tiles
                             fill={false}
                             className="friend-events__tiles"
                             flush={false}>
-                            {this.state.events.map(event => (
-                                <div
-                                    className="friend-events__event"
-                                    key={`event-${event.name}`}>
-                                    <Tile>
-                                        <a href={event.link} target="_blank">
-                                            <Card
-                                                description={event.dateString}
-                                                heading={event.name}
-                                                label={event.group}
-                                                thumbnail={event.image}
-                                            />
-                                        </a>
-                                    </Tile>
-                                </div>
-                            ))}
+                            {this.state.events
+                                .filter(
+                                    event =>
+                                        this.state.chosenSubjects.length ===
+                                            0 ||
+                                        arrayContainsAnyOf(
+                                            event.subjects,
+                                            this.state.chosenSubjects
+                                        )
+                                )
+                                .filter(
+                                    event =>
+                                        this.state.chosenLocations.length ===
+                                            0 ||
+                                        this.state.chosenLocations.includes(
+                                            event.location
+                                        )
+                                )
+                                .filter(
+                                    event =>
+                                        this.state.chosenGroups.length === 0 ||
+                                        this.state.chosenGroups.includes(
+                                            event.group
+                                        )
+                                )
+                                .map(event => (
+                                    <div
+                                        className="friend-events__event"
+                                        key={`event-${event.name}`}>
+                                        <Tile>
+                                            <a
+                                                href={event.link}
+                                                target="_blank">
+                                                <Card
+                                                    description={event.dateString.toString()}
+                                                    heading={event.name}
+                                                    label={event.group}
+                                                    thumbnail={event.image}
+                                                />
+                                            </a>
+                                        </Tile>
+                                    </div>
+                                ))}
                         </Tiles>
                     </React.Fragment>
                 ) : (
