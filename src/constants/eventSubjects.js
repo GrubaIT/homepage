@@ -1,0 +1,18 @@
+export default {
+    cloud: 'Cloud computing',
+    azure: 'Microsoft Azure',
+    serverless: 'Serverless',
+    javascript: 'JavaScript',
+    react: 'React',
+    java: 'Java',
+    net: '.NET',
+    tests: 'Tests',
+    automation: 'Automation',
+    devops: 'DevOps',
+    security: 'Security',
+    aws: 'AWS',
+    angular: 'Angular',
+    node: 'Node.js',
+    functional: 'Functional Programming',
+    softwareCraftmanship: 'Software Craftmanship',
+};
