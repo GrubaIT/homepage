@@ -1,5 +1,7 @@
 Strona Gruba.IT
 ========================
+[![Build status](https://humanaction.visualstudio.com/Gruba.IT/_apis/build/status/Gruba.IT-CI-BLOB)](https://humanaction.visualstudio.com/Gruba.IT/_build/latest?definitionId=20)
+
 Prosta stronka, z której korzystamy jako naszej strony głównej fundacji. Oparta na boilerplate'ie od Kamila Szymańskiego.
 ---------------
 Stack:
