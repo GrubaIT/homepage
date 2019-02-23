@@ -74,10 +74,7 @@ class FriendEvents extends Component {
                         ],
                         locations: [
                             ...this.state.locations,
-                            ...selectMany(events, 'location').filter(
-                                location =>
-                                    !this.state.locations.includes(location)
-                            ),
+                            ...selectMany(events, 'location'),
                         ],
                     });
                 }

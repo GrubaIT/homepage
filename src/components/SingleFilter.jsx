@@ -9,20 +9,30 @@ const SingleFilter = ({
     onChange,
     placeholder,
     value,
-}) => (
-    <div className={className}>
-        <Label>{title}</Label>
-        <Select
-            options={elements}
-            onChange={onChange}
-            value={value}
-            multiple
-            messages={{
-                multiple: 'Wybrano wiele',
-            }}
-            placeHolder={placeholder}
-        />
-    </div>
-);
+}) => {
+    const allElements = elements.reduce(
+        (accumulated, current) =>
+            accumulated.includes(current)
+                ? accumulated
+                : [...accumulated, current],
+        []
+    );
+
+    return (
+        <div className={className}>
+            <Label>{title}</Label>
+            <Select
+                options={allElements}
+                onChange={onChange}
+                value={value}
+                multiple
+                messages={{
+                    multiple: 'Wybrano wiele',
+                }}
+                placeHolder={placeholder}
+            />
+        </div>
+    );
+};
 
 export default SingleFilter;
