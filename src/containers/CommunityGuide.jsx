@@ -65,13 +65,15 @@ export default class CommunityGuide extends Component {
                             Chcesz pozostać na ostrzu noża znając aktualne
                             trendy w IT i być cenionym pracownikiem? A może masz
                             problem i szukasz kogoś kto pomógłby Ci go
-                            rozwiązać? Społeczność IT to niesamowite źródło
-                            wiedzy, inspiracji a przede wszystkim ludzi, którzy
-                            chętnie wymienią się doświadczeniami. Ale gdzie ją
-                            spotkać? Przedstawiamy zestawienie 13
-                            wyselekcjonowanych spotkań z całego Śląska, na
-                            których znajdziesz nie tylko merytorykę ale również
-                            niesamowitych ludzi.
+                            rozwiązać?
+                        </p>
+                        <p>
+                            Społeczność IT to niesamowite źródło wiedzy,
+                            inspiracji a przede wszystkim ludzi, którzy chętnie
+                            wymienią się doświadczeniami. Ale gdzie ją spotkać?
+                            Przedstawiamy zestawienie 13 wyselekcjonowanych
+                            spotkań z całego Śląska, na których znajdziesz nie
+                            tylko merytorykę ale również niesamowitych ludzi.
                         </p>
                         <section className='community-guide__magnet--two-column'>
                             <Box>

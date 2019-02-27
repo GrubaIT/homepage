@@ -6,21 +6,28 @@
     max-width: 90%;
 
     & > section {
-        flex: 0 0 48%;
+        flex: 1 1 500px;
+        padding: 0 20px;
     }
 
     &__magnet {
         &--two-column {
             display: flex;
             flex-direction: row;
+            flex-wrap: wrap;
             justify-content: space-between;
 
             & > * {
-                flex: 0 0 48%;
+                flex: 1 1 200px;
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
+                max-height: 300px;
             }
+        }
+
+        & > p {
+            text-align: justify;
         }
 
         ul {
@@ -30,7 +37,6 @@
             li {
                 display: flex;
                 flex-direction: row;
-                justify-content: space-between;
                 padding: 10px 0;
 
                 .list-bullet {
@@ -38,6 +44,12 @@
                     width: 25px;
                     margin-left: -20px;
                     margin-right: 10px;
+                }
+
+                & > span {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
                 }
             }
         }
@@ -65,7 +77,8 @@
                     flex: 0 0 100%;
                 }
 
-                & > input[type=text], & > input[type=email] {
+                & > input[type='text'],
+                & > input[type='email'] {
                     margin: 5px 0;
                 }
 
@@ -90,6 +103,14 @@
                 flex-direction: row;
                 justify-content: center;
 
+                .grommetux-button__icon {
+                    display: none;
+                }
+
+                .grommetux-button__label {
+                    margin-left: 0;
+                }
+
                 &:hover {
                     color: $color-red;
                     background-color: white;
@@ -99,7 +120,8 @@
                     display: none;
                 }
 
-                &.sending, &.sent {
+                &.sending,
+                &.sent {
                     border-color: $color-white;
                     color: $color-white;
                     background-color: white;
@@ -118,7 +140,9 @@
 
             /* GROMMET OVERRIDES */
 
-            .grommetux-check-box--toggle .grommetux-check-box__input:checked + .grommetux-check-box__control {
+            .grommetux-check-box--toggle
+                .grommetux-check-box__input:checked
+                + .grommetux-check-box__control {
                 background-color: $color-yellow;
                 border-color: $color-yellow;
             }
@@ -127,7 +151,9 @@
                 stroke: $color-yellow;
             }
 
-            .grommetux-check-box--toggle .grommetux-check-box__input:checked + .grommetux-check-box__control:after {
+            .grommetux-check-box--toggle
+                .grommetux-check-box__input:checked
+                + .grommetux-check-box__control:after {
                 border-color: $color-yellow;
             }
         }
