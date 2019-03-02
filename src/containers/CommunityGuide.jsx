@@ -62,10 +62,9 @@ export default class CommunityGuide extends Component {
                         </Heading>
                         <p>
                             Chcesz rozwijać swoje umiejetności jeszcze szybciej?
-                            Chcesz pozostać na ostrzu noża znając aktualne
-                            trendy w IT i być cenionym pracownikiem? A może masz
-                            problem i szukasz kogoś kto pomógłby Ci go
-                            rozwiązać?
+                            Chcesz ciągle się rozwijać poznając aktualne trendy
+                            w IT i być cenionym specjalistą? A może masz problem
+                            i szukasz kogoś kto pomógłby Ci go rozwiązać?
                         </p>
                         <p>
                             Społeczność IT to niesamowite źródło wiedzy,
