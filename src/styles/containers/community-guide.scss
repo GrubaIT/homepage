@@ -1,0 +1,167 @@
+.community-guide {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 90%;
+
+    & > section {
+        flex: 1 1 500px;
+        padding: 0 20px;
+    }
+
+    &__magnet {
+        &--two-column {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-between;
+
+            & > * {
+                flex: 1 1 200px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                max-height: 300px;
+            }
+        }
+
+        & > p {
+            text-align: justify;
+        }
+
+        ul {
+            list-style-type: none;
+            position: relative;
+
+            li {
+                display: flex;
+                flex-direction: row;
+                padding: 10px 0;
+
+                .list-bullet {
+                    flex: 0 0 25px;
+                    width: 25px;
+                    margin-left: -20px;
+                    margin-right: 10px;
+                }
+
+                & > span {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                }
+            }
+        }
+    }
+
+    &__subscribe {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        .form {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border: 3px solid $color-yellow;
+            background-color: white;
+            padding: 35px;
+
+            .fieldset {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+
+                & > * {
+                    flex: 0 0 100%;
+                }
+
+                & > input[type='text'],
+                & > input[type='email'] {
+                    margin: 5px 0;
+                }
+
+                &__input {
+                    margin: 5px 0;
+                }
+
+                &__checkbox {
+                    margin: 5px 0;
+                }
+            }
+
+            .submit {
+                margin-top: 30px;
+                width: 100%;
+                display: block;
+                max-width: unset;
+                background-color: $color-red;
+                border-color: $color-red;
+                color: white;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+
+                .grommetux-button__icon {
+                    display: none;
+                }
+
+                .grommetux-button__label {
+                    margin-left: 0;
+                }
+
+                &:hover {
+                    color: $color-red;
+                    background-color: white;
+                }
+
+                .loading {
+                    display: none;
+                }
+
+                &.sending,
+                &.sent {
+                    border-color: $color-white;
+                    color: $color-white;
+                    background-color: white;
+                }
+
+                &.sent {
+                    color: $color-grey;
+                }
+
+                &.sending {
+                    .loading {
+                        display: block;
+                    }
+                }
+            }
+
+            .legal {
+                font-size: 10px;
+                color: #868686;
+                padding: 10px 0;
+            }
+
+            /* GROMMET OVERRIDES */
+
+            .grommetux-check-box--toggle
+                .grommetux-check-box__input:checked
+                + .grommetux-check-box__control {
+                background-color: $color-yellow;
+                border-color: $color-yellow;
+            }
+
+            .grommetux-check-box__control-check {
+                stroke: $color-yellow;
+            }
+
+            .grommetux-check-box--toggle
+                .grommetux-check-box__input:checked
+                + .grommetux-check-box__control:after {
+                border-color: $color-yellow;
+            }
+        }
+    }
+}
