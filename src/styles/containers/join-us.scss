@@ -1,0 +1,41 @@
+.join-us {
+  .content-wrapper {
+    background-color: $color-white;
+    & ul {
+      margin: 0;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: justify;
+    width: 60%;
+    @media (max-width: 1280px) {
+      width: 90%;
+    }
+  }
+  &__header,
+  &__accordion {
+    flex: 0 0 100%;
+  }
+  &__text {
+    font-size: 20px;
+  }
+
+  &__header {
+    text-align: center;
+    margin: 0px 0px 25px;
+  }
+
+  &__accordion {
+    background-color: white;
+    padding: 15px;
+    border: 3px solid $color-yellow;
+    .answer {
+      padding: 5px 15px;
+    }
+  }
+}
