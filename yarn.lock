@@ -2112,7 +2112,6 @@ elliptic@^6.0.0:
 email-validator@^2.0.4:
   version "2.0.4"
   resolved "https://registry.yarnpkg.com/email-validator/-/email-validator-2.0.4.tgz#b8dfaa5d0dae28f1b03c95881d904d4e40bfe7ed"
-  integrity sha512-gYCwo7kh5S3IDyZPLZf6hSS0MnZT8QmJFqYvbqlDZSbwdZlY6QZWxJ4i/6UhITOJ4XzyI647Bm2MXKCLqnJ4nQ==
 
 emojis-list@^2.0.0:
   version "2.1.0"
@@ -3477,7 +3476,6 @@ json5@^2.1.0:
 jsonp@^0.2.1:
   version "0.2.1"
   resolved "https://registry.yarnpkg.com/jsonp/-/jsonp-0.2.1.tgz#a65b4fa0f10bda719a05441ea7b94c55f3e15bae"
-  integrity sha1-pltPoPEL2nGaBUQep7lMVfPhW64=
   dependencies:
     debug "^2.1.3"
 
@@ -4998,6 +4996,10 @@ react-dom@^16.6.3:
     prop-types "^15.6.2"
     scheduler "^0.11.2"
 
+react-facebook-pixel@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/react-facebook-pixel/-/react-facebook-pixel-0.1.2.tgz#a1519f215611eb136802d78542aface547972827"
+
 react-hot-loader@^4.3.12:
   version "4.3.12"
   resolved "https://registry.yarnpkg.com/react-hot-loader/-/react-hot-loader-4.3.12.tgz#0d56688884e7330c63a00a17217866280616b07a"
@@ -5026,7 +5028,6 @@ react-lifecycles-compat@^3.0.4:
 react-mailchimp-subscribe@^2.0.2:
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/react-mailchimp-subscribe/-/react-mailchimp-subscribe-2.0.2.tgz#64c86e9eb0282b3842f95dcf58446fe06feabd1b"
-  integrity sha512-TSRfVRngAH5ui2LKVp30Bdd9sJq2v0IJwxUNLIS29e8bGb4IJJAtagu3x5mStDZ0ePEDgD0jeTJ79Oeyy/Ou7w==
   dependencies:
     jsonp "^0.2.1"
     prop-types "^15.5.10"
@@ -5957,7 +5958,6 @@ to-object-path@^0.3.0:
 to-querystring@^1.0.4:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/to-querystring/-/to-querystring-1.1.0.tgz#31efbcebb332bcb2522de36129b4234179399fbd"
-  integrity sha512-nlYTDlLrE9+JJlEcoqEvOytgReSG4z8+hdHeSO8+WF4VLzF7sY5KFyIGvCEWJc0bROdMJsyhOnbPEb5R2LOI8A==
 
 to-regex-range@^2.1.0:
   version "2.1.1"

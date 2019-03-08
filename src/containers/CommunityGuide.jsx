@@ -3,6 +3,7 @@ import MailchimpSubscribe from 'react-mailchimp-subscribe';
 import Image from 'grommet/components/Image';
 import Box from 'grommet/components/Box';
 import Heading from 'grommet/components/Heading';
+import ReactPixel from 'react-facebook-pixel';
 
 import { Subpage } from '../components';
 import ebook from '../images/community-guide.png';
@@ -10,6 +11,11 @@ import listImage from '../images/success.svg';
 import LeadMagnetForm from '../components/LeadMagnetForm';
 import { mailchimpListUrl } from '../constants/general';
 import { validate, fieldValidationRule } from '../services/validation-service';
+
+const options = {
+    autoConfig: true, 	// set pixel's autoConfig
+    debug: false, 		// enable logs
+};
 
 export default class CommunityGuide extends Component {
     constructor(props) {
@@ -37,6 +43,7 @@ export default class CommunityGuide extends Component {
             this.setState({ formErrors });
 
             if (!formErrors.name && !formErrors.email) {
+                ReactPixel.trackCustom( 'Subscribe', { name, email, event: 'Subscribed to newsletter'} );
                 subscribe({
                     FNAME: this.state.formValues.name,
                     EMAIL: this.state.formValues.email,
@@ -50,6 +57,7 @@ export default class CommunityGuide extends Component {
                 });
             }
         };
+        ReactPixel.init('1977005222589935', {}, options);
     }
 
     render() {
