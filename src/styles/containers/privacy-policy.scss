@@ -1,0 +1,18 @@
+.privacy-policy {
+    text-align: justify;
+
+    & > p {
+        font-size: 1.1em;
+        color: #6d6d6d;
+    }
+    .privacy-policy__points {
+        list-style-type: decimal;
+        margin-left: 50px;
+
+        li {
+            max-width: unset;
+            font-size: 1.3em;
+            line-height: 1.6em;
+        }
+    }
+}
