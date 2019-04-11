@@ -9,11 +9,13 @@
 @import 'containers/all';
 
 * {
-	box-sizing: border-box;
+    box-sizing: border-box;
 }
 
-html, body, .app-container {
-	height: 100%;
-	position: relative;
-	font-family: 'Inconsolata', monospace;
+html,
+body,
+.app-container {
+    height: 100%;
+    position: relative;
+    font-family: 'Inconsolata', monospace;
 }
