@@ -44,7 +44,11 @@ export default class OurEvents extends Component {
                         <Spinning size='large' />
                     )}
                 </Box>
-                <a href=''>Zobacz wszystkie wydarzenia</a>
+                <a
+                    href='https://www.eventbrite.com/o/grubait-17671110911'
+                    target='_blank'>
+                    Zobacz wszystkie wydarzenia
+                </a>
             </Section>
         );
     }
