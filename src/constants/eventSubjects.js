@@ -15,4 +15,9 @@ export default {
     node: 'Node.js',
     functional: 'Functional Programming',
     softwareCraftmanship: 'Software Craftmanship',
+    ba: 'Business Analysis',
+    agile: 'Agile',
+    blockchain: 'Blockchain',
+    ta: 'Technical Analysis',
+    trading: 'Trading',
 };

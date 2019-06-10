@@ -11,6 +11,10 @@ import fm from '../images/functionalminers-invert.png';
 import sjug from '../images/jug-invert.png';
 import barcamp from '../images/barcamp-invert.png';
 import devduck from '../images/devduck1.jpg';
+import aws from '../images/aws-biale.png';
+import ba from '../images/BAMEETUP-LOGO.png';
+import agile from '../images/agile-silesia.png';
+import blockchain from '../images/silesia-blockchain.png';
 import eventSubjects from '../constants/eventSubjects';
 import eventLocations from '../constants/eventLocations';
 
@@ -146,6 +150,74 @@ export default function getFriends() {
                 eventSubjects.node,
             ],
             location: eventLocations.gliwice,
+        },
+        {
+            name: 'aws',
+            logo: {
+                image: aws,
+                url: 'https://www.meetup.com/pl-PL/AWSUGPL/',
+            },
+            eventProviderUrl:
+                'https://grubait.azurewebsites.net/meetup/AWSUGPL/events',
+            eventProviderName: eventProviders.meetup,
+            additionalFilters: ['KTW', 'GLC', 'Silesia'],
+            subjects: [
+                eventSubjects.aws,
+                eventSubjects.devops,
+                eventSubjects.cloud,
+                eventSubjects.serverless,
+                eventSubjects.security,
+            ],
+            location: eventLocations.kato,
+        },
+        {
+            name: 'ba',
+            logo: {
+                image: ba,
+                url: 'https://www.meetup.com/softservepoland/',
+            },
+            eventProviderUrl:
+                'https://grubait.azurewebsites.net/meetup/softservepoland/events',
+            additionalFilters: ['BA Meet-up'],
+            eventProviderName: eventProviders.meetup,
+            subjects: [
+                eventSubjects.ba,
+                eventSubjects.agile,
+                eventSubjects.tests,
+            ],
+            location: eventLocations.gliwice,
+        },
+        {
+            name: 'agile',
+            logo: {
+                image: agile,
+                url: 'https://www.meetup.com/AgileSilesia/',
+            },
+            eventProviderUrl:
+                'https://grubait.azurewebsites.net/meetup/AgileSilesia/events',
+            eventProviderName: eventProviders.meetup,
+            subjects: [
+                eventSubjects.ba,
+                eventSubjects.agile,
+                eventSubjects.tests,
+            ],
+            location: eventLocations.kato,
+        },
+        {
+            name: 'blockchain',
+            logo: {
+                image: blockchain,
+                url: 'https://www.meetup.com/Silesia-Blockchain-Meetup/',
+            },
+            eventProviderUrl:
+                'https://grubait.azurewebsites.net/meetup/Silesia-Blockchain-Meetup/events',
+            eventProviderName: eventProviders.meetup,
+            subjects: [
+                eventSubjects.blockchain,
+                eventSubjects.ta,
+                eventSubjects.trading,
+            ],
+            location: eventLocations.kato,
         },
     ];
 }
