@@ -71,7 +71,7 @@ class Team extends Component {
                         image={dawid}
                         name='Dawid Kryczka'
                         title='Cross Meetup & Hackathon Specialist'
-                        description=''
+                        description='Świeżak po kursie Javy, od niedawna związany z branżą IT. Uwielbia ideę meetupów i dzielenia się wiedzą.'
                         email='dawid@gruba.it'
                     />
                 </Tiles>
