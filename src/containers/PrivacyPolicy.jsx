@@ -87,10 +87,11 @@ export default class PrivacyPolicy extends React.Component {
                         <li>
                             Dane zbierane podczas rejestracji na wydarzenia będą
                             wykorzystywane jedynie w celach organizacyjnych
-                            wydarzenia oraz informacyjnych (informacje dotyczące
+                            wydarzenia oraz informacyjnych (informacje od
+                            partnerów fundacji Gruba.IT, informacje dotyczące
                             wydarzeń, w których użytkownik wyraził chęć udziału
                             oraz przyszłych wydarzeń organizowanych przez
-                            Gruba.IT)
+                            fundację Gruba.IT)
                         </li>
                         <li>
                             Dane zbierane automatycznie mogą być użyte do
