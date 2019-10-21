@@ -2,9 +2,14 @@ import React from "react";
 import convert from "xml-js";
 
 import { Subpage, Gallery } from '../components';
-import galleryService from "../services/gallery-service";
 
 const BATCH_SIZE = 12;
+
+const imgFromBlob = ({Url: {_text: imageUrl}}) => imageUrl
+
+const imagesFromBlob = blob => Array.isArray(blob)
+  ? blob.map(imgFromBlob)
+  : [imgFromBlob(blob)];
 
 export default class App extends React.Component {
   constructor(props) {
@@ -30,7 +35,9 @@ export default class App extends React.Component {
         this.setState(oldState => ({
           loading: false,
           nextMarker: NextMarker._text,
-          images: [...oldState.images, ...Blobs.Blob.map(({Url: {_text: imageUrl}}) => imageUrl)]
+          images: Blobs.Blob
+            ? [...oldState.images, ...imagesFromBlob(Blobs.Blob)]
+            : oldState.images
         }))
       })
   };
