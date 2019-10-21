@@ -30,7 +30,6 @@ export default class App extends React.Component {
       .then(response => response.text())
       .then(xmlText => {
         const {EnumerationResults: {NextMarker, Blobs}} = JSON.parse(convert.xml2json(xmlText, {compact: true, spaces: 4}))
-        console.log({NextMarker, Blobs})
 
         this.setState(oldState => ({
           loading: false,

@@ -9,7 +9,7 @@ class Gallery extends Component {
     return (
       <ModalImage
         key={`gallery-image-${imageUrl}`}
-        className="cursor gallery__images--item"
+        className="gallery__images--item"
         small={imageUrl}
         large={imageUrl}
         hideZoom={true}
@@ -32,7 +32,9 @@ class Gallery extends Component {
           <div className="gallery__images">
             {images.length ? images.map(this.renderImage) : null}
           </div>
-          {loading && <Spinning size='large' />}
+          {loading && <div className="gallery__loading-container">
+            <Spinning size='large' />
+          </div>}
         </section>
       </InfiniteScroll>
     );
