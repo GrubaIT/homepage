@@ -5,6 +5,8 @@ import Paragraph from "grommet/components/Paragraph";
 
 import gruba from "../images/logo-grey.png";
 
+const year = (new Date()).getFullYear()
+
 export default ({className}) => <Footer className={className} justify="center" align="center" alignContent="center" justify="center" size="small">
     <Box
         direction="row"
@@ -15,6 +17,6 @@ export default ({className}) => <Footer className={className} justify="center" a
         className="app-container__footer"
     >
     <img className="app-container__footer-logo" src={gruba} />
-    <Paragraph margin="none">© 2018 Fundacja Gruba.IT</Paragraph>
+    <Paragraph margin="none">© 2018 - {year} Fundacja Gruba.IT</Paragraph>
     </Box>
 </Footer>;
