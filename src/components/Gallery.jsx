@@ -1,13 +1,15 @@
 import React, { Component } from "react";
 import ModalImage from "react-modal-image";
+
 import Spinning from 'grommet/components/icons/Spinning';
+import { InfiniteScroll } from 'react-simple-infinite-scroll';
 
 class Gallery extends Component {
   renderImage(imageUrl) {
     return (
       <ModalImage
         key={`gallery-image-${imageUrl}`}
-        className="cursor gallery__images--item"
+        className="gallery__images--item"
         small={imageUrl}
         large={imageUrl}
         hideZoom={true}
@@ -16,16 +18,25 @@ class Gallery extends Component {
   }
 
   render() {
+    const {images, loading, nextMarker, loadMore} = this.props
+
     return (
-      <section className="gallery">
-        <div className="gallery__images">
-            {
-                this.props.imageUrls
-                ? this.props.imageUrls.map(this.renderImage)
-                : <Spinning size='large' />
-            }
-        </div>
-      </section>
+      <InfiniteScroll
+        throttle={200}
+        threshold={100}
+        isLoading={loading}
+        hasMore={nextMarker}
+        onLoadMore={loadMore}
+      >
+        <section className="gallery">
+          <div className="gallery__images">
+            {images.length ? images.map(this.renderImage) : null}
+          </div>
+          {loading && <div className="gallery__loading-container">
+            <Spinning size='large' />
+          </div>}
+        </section>
+      </InfiniteScroll>
     );
   }
 }
