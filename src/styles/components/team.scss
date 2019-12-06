@@ -54,4 +54,11 @@
         background-size: cover !important;
         min-height: 320px;
     }
+
+    .grommetux-pulse__icon svg {
+        padding: 10px;
+        path {
+            transform: scale(0.8) translate(3.3px, 3.3px)
+        }
+    }
 }
